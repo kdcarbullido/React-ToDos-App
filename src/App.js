@@ -31,18 +31,11 @@ class App extends Component {
     const todo = todos[index];
     todo.isCompleted = todo.isCompleted ? false : true;
     this.setState({ todos: todos })
-
   }
 
-  deleteTodo (index) {
-//    console.log(index, this.state.todos);
-//    const todos = this.state.todos.filter( () => this.state.todos.key !== index);
-    const todos =[];
-    for (let i=0; i<this.state.todos.length; i++) {
-      if (i !== index) { todos.push(this.state.todos[i]);}
-    }
-    this.setState( {todos: todos} );
-//    console.log("called deleteTodo", todos);
+  deleteTodo (indexToRemove) {
+    const todox = this.state.todos.filter( (todoItem, todoIndex) => indexToRemove !== todoIndex);
+    this.setState( {todos: todox} );
   }
 
   render() {
